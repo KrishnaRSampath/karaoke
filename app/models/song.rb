@@ -5,7 +5,8 @@ class Song < ActiveRecord::Base
   validates :length, :presence => true,
                     :length => { :minimum => 4, :maximum => 5}
 
-  has_many :songs_artists
-  has_many :artists, through: :songs_artists
+  has_many :recordings
+  has_many :artists, through: :recordings
 
+  accepts_nested_attributes_for :artists
 end

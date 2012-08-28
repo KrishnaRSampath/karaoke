@@ -25,6 +25,7 @@ class SongsController < ApplicationController
   # GET /songs/new.json
   def new
     @song = Song.new
+    #3.times { @song.artists.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,10 @@ class SongsController < ApplicationController
   # POST /songs.json
   def create
     @song = Song.new(params[:song])
+    if params[:artist]
+      @song.artists.destroy_all
+      @song.artists.new(params[:artist])
+    end
 
     respond_to do |format|
       if @song.save

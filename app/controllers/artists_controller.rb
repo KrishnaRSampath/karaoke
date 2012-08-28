@@ -22,8 +22,8 @@ class ArtistsController < ApplicationController
   end
 
   def create
-		@song = Song.find(params[:song_id])
+    @song = Song.find(params[:song_id])
 		@artist = @song.artists.create(params[:artist])
-		redirect_to_song_path(@song)
+		redirect_to song_path(@song)
 	end
 end

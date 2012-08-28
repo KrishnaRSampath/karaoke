@@ -6,7 +6,6 @@
 </p>
 
 <p>
-  <b>Artist:</b>
   <%= render @song.artists %>
 </p>
 
@@ -19,9 +18,10 @@
 <h2>Add an Artist (some songs have multiple artists!):</h2>
 <%= form_for([@song, @song.artists.build]) do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label "Artist's Name" %><br />
     <%= f.text_field :name %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
@@ -32,3 +32,4 @@
 
 <%= link_to 'Edit This Song', edit_song_path(@song) %> |
 <%= link_to 'Back to All Songs', songs_path %>
+  

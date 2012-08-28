@@ -23,14 +23,15 @@
     <%= f.text_field :length %>
   </div>
 
+
   <div class="field">
-    <%= fields_for @song.artist do |name| %>
-      <%= name.label :name %>
-      <%= name.text_field :name %>
+    <%= fields_for :artist do |artist| %>
+      <%= artist.label :name, "semi-working Artist Name" %>
+      <%= artist.text_field :name %>
     <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit"%>
   </div>
 <% end %>

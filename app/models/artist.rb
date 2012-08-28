@@ -1,7 +1,10 @@
 class Artist < ActiveRecord::Base
   attr_accessible :name
 
-  has_many :songs_artists
-  has_many :songs, through: :songs_artists
+  validates :name,  :presence => true
 
+  has_many :recordings
+  has_many :songs, through: :recordings
+
+  #accepts_nested_attributes_for :artists
 end
